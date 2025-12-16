@@ -63,7 +63,7 @@ open-data2_bis/
 
 ## Installation
 ```bash
-uv add httpx pandas duckdb litellm python-dotenv tenacity tqdm pyarrow pydantic pytest
+uv add httpx pandas duckdb litellm python-dotenv tenacity tqdm pyarrow pydantic pytest matplotlib seaborn
 ```
 
 ## Configuration
