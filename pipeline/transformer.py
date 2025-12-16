@@ -112,6 +112,8 @@ class DataTransformer:
         
         # Exemple : catégorie de sucres
         if 'sugars_100g' in self.df.columns:
+            self.df['sugars_100g'] = pd.to_numeric(self.df['sugars_100g'], errors='coerce')
+
             self.df['sugar_category'] = pd.cut(
                 self.df['sugars_100g'],
                 bins=[0, 5, 15, 30, float('inf')],

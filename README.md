@@ -78,8 +78,17 @@ Les principaux paramètres sont centralisés dans pipeline/config.py :
 
 ### Lancer le pipeline
 
+Test pour quelques valeurs (car type chocolats), ignore la partie Enrichissement
+
 ```bash
 python -m pipeline.main --category chocolats --max-items 100 --verbose
+```
+
+Test pour de nombreuses valeurs, inclue la partie Enrichissement
+
+
+```bash
+python -m pipeline.main --category "orange juice" --max-items 500 --verbose
 ```
 
 Options :

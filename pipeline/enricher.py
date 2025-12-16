@@ -78,7 +78,7 @@ class DataEnricher:
                 enriched_products.append(enriched)
                 continue
 
-            normalized = self._normalize_address(raw_addr)
+            normalized = self.normalize_address(raw_addr)
 
             geo = geocoding_cache.get(normalized)
 

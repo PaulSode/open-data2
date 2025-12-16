@@ -23,15 +23,28 @@ def save_raw_json(data: list[dict], name: str) -> Path:
 
 def save_parquet(df: pd.DataFrame, name: str) -> Path:
     """Sauvegarde le DataFrame en Parquet."""
+    import pandas as pd
+    from pathlib import Path
+    from datetime import datetime
+
+    # Colonnes numériques à convertir
+    numeric_cols = ['energy_100g', 'sugars_100g', 'fat_100g', 'salt_100g']
+    for col in numeric_cols:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors='coerce')
+
+    # Création du chemin
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filepath = PROCESSED_DIR / f"{name}_{timestamp}.parquet"
-    
+
+    # Sauvegarde
     df.to_parquet(filepath, index=False, compression="snappy")
-    
+
     size_kb = filepath.stat().st_size / 1024
     print(f"   💾 Parquet: {filepath.name} ({size_kb:.1f} KB)")
-    
+
     return filepath
+
 
 
 def load_parquet(filepath: str | Path) -> pd.DataFrame:
