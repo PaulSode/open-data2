@@ -124,7 +124,7 @@ pytest tests/ -v --cov=pipeline --cov-report=html
 
 Génère un rapport HTML dans htmlcov/index.html
 
- - ests unitaires pour les fetchers (test_fetchers.py)
+ - Tests unitaires pour les fetchers (test_fetchers.py)
  - Tests pour le transformer (test_transformer.py)
  - Tests pour enricher, quality et storage (test_others.py)
 
@@ -138,3 +138,5 @@ Génère un rapport HTML dans htmlcov/index.html
  - pytest et pytest-cov pour les tests et couverture
  - tqdm pour la barre de progression
  - litellm pour la génération de recommandations IA (simulée dans les tests)
+
+ ### Par Paul Sode
